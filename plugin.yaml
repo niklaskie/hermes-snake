@@ -1,0 +1,4 @@
+name: snake
+version: 0.2.0
+description: "Snake as a Hermes Desktop page, with one live public scoreboard for everyone who plays (snake.niklaskietaibl.com). Desktop-only, no agent half. Sends only the player name you type and your score."
+author: niklaskie
