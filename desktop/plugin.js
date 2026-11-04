@@ -14,14 +14,17 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { host, ROUTES_AREA, SIDEBAR_NAV_AREA, PALETTE_AREA, useQuery } from "@hermes/plugin-sdk";
 
 const ID = "snake";
-const VERSION = "0.2.0";
+const VERSION = "0.2.1";
 const ROUTE = "/snake";
 const SITE = "https://snake.niklaskietaibl.com";
 const API = SITE + "/api";
 const GRID = 20;
 const START_MS = 130;
 const MIN_MS = 65;
-const HEARTBEAT_MS = 2000;
+const HEARTBEAT_MS = 5000;
+// Scoreboard refresh: faster while you play, slow while you only look. Paused when the app is in the background.
+const POLL_PLAYING_MS = 5000;
+const POLL_IDLE_MS = 15000;
 
 let CTX = null;
 const store = {
@@ -256,7 +259,7 @@ function Scoreboard({ name, pid, myLive }) {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
     },
-    refetchInterval: 2000,
+    refetchInterval: () => (typeof document !== "undefined" && document.hidden ? false : myLive !== null ? POLL_PLAYING_MS : POLL_IDLE_MS),
     refetchIntervalInBackground: false,
     retry: 1,
   });
