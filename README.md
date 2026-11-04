@@ -6,11 +6,13 @@ Scoreboard and install guide: **https://snake.niklaskietaibl.com**
 
 ## Install
 
-**Easiest:** send this to your Hermes:
+**Easiest:** click **Open in Hermes** on https://snake.niklaskietaibl.com (or open `hermes://plugin/install?repo=niklaskie/hermes-snake`) and confirm the dialog in the desktop app.
+
+**Or** send this to your Hermes:
 
 > Install the Snake plugin for Hermes Desktop. Follow the steps at https://snake.niklaskietaibl.com/install.md exactly, and show me the SHA-256 check when you are done.
 
-**Hermes runs on a server (desktop app connects over SSH):** in the desktop app open Settings → Plugins → **Install from Git** and paste:
+**Hermes runs on a server (desktop app connects over SSH):** in the desktop app open Capabilities → Plugins → **Install from Git** and paste:
 
 ```
 https://github.com/niklaskie/hermes-snake
@@ -30,7 +32,7 @@ Desktop plugins run with the app's permissions, so do read the file before insta
 
 ## Uninstall
 
-Settings → Plugins, or delete the plugin folder in `~/.hermes/desktop-plugins/`.
+Capabilities → Plugins, or delete the plugin folder in `~/.hermes/desktop-plugins/`.
 
 ## License
 
